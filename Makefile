@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/12 14:28:07 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/13 15:10:16 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,10 @@ ft_print_memory.c \
 ft_substr.c \
 ft_strjoin.c \
 ft_strtrim.c \
-ft_itoa.c
+ft_itoa.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
+ft_split.c
 
 NAME 	= libft.a
 OBJS	= ${SRC:%.c=%.o}

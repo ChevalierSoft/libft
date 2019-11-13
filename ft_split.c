@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:54:33 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 15:48:19 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:53:41 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-static size_t	ft_find_string_number(const char *s, char c, size_t *nbm)
+static size_t		ft_find_string_number(const char *s, char c, size_t *nbm)
 {
 	size_t	i;
 
@@ -40,49 +40,54 @@ static size_t	ft_find_string_number(const char *s, char c, size_t *nbm)
 	return (*nbm);
 }
 
-const size_t		decoupe(char *s, char c)
+static size_t		ft_strlen2(char **s, char c)
 {
-	char *l;
+	size_t	i;
+	char	*p;
 
-	while (*s != c)
+	i = 0;
+	while (**s == c)
+		(*s)++;
+	p = *s;
+	while (*p != c && *p)
 	{
-		s++;
+		p++;
+		i++;
 	}
-	return (666);
+	return (i);
 }
 
-char			**ft_split(char const *s, char c)
+char				**ft_split(char const *s, char c)
 {
 	char	**lt;
 	size_t	nbm;
 	size_t	belica;
 	size_t	w;
+	char	*re;
 
+	belica = 0;
+	re = (char *)s;
 	if (!s)
 		return (0);
-
-	nbm = ft_find_string_number(s, c, &nbm);
-//	printf("nbm = %zu\n", nbm);
-	/*
-	w = 0;
-	belica = 0;
-	lt = malloc(sizeof(char *) * nbm + 1);
+	if (!(nbm = ft_find_string_number(s, c, &nbm)))
+		return (0);
+	if (!(lt = malloc(sizeof(char *) * nbm + 1)))
+		return (0);
 	while (belica < nbm)
 	{
-		lt[belica] = decoupe(s + w);
+		w = ft_strlen2(&re, c) + 1;
+		if (!(lt[belica] = malloc(sizeof(char) * w)))
+			return (0);
+		while (w + 1)
+		{
+			lt[belica][w] = re[w];
+			w--;
+		}
+		w = ft_strlen2(&re, c);
+		re += w;
+		lt[belica][w] = 0;
 		belica++;
-
 	}
 	lt[belica] = 0;
-	*/
 	return (lt);
-}
-
-int				main(int argc, char **argv)
-{
-	char	**lt_belica;
-
-	lt_belica = ft_split(argv[1], ' ');
-	//for (int i = 0; i < argc; i++)
-	//	free(lt_belica[i]);
 }

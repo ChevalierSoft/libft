@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 14:29:35 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:09:42 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int					ft_print(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(char c);
 int					ft_isascii(int c);
-int					ft_isalpha(char c);
+int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 void				ft_bzero(void *s, size_t n);
 int					ft_atoi(const char *str);
@@ -55,5 +55,8 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char    			*ft_strjoin(char const *s1, char const *s2);
 char				*ft_itoa(int n);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+char                **ft_split(char const *s, char c);
 
 #endif

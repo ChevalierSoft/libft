@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:35:02 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 14:12:34 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 13:42:48 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t i;
 
 	i = 0;
-	while (n--)
+	while (i < (int)n)
 	{
 		((char *)dst)[i] = ((char *)src)[i];
 		i++;
