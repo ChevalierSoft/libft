@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:17:25 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 16:39:31 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:56:44 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	beg;
 	size_t	size;
 	char	*s2;
-
+	
+	if (!s1 || !set)
+		return (0);
 	beg = faut_refaire(s1, set, 1);
 	size = 1 + faut_refaire(s1, set, -1) - beg;
 	if (!(s2 = malloc(sizeof(char) * size + 1)))

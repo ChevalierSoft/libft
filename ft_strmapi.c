@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 18:11:43 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 16:47:20 by dait-atm         ###   ########.fr       */
+/*   Created: 2019/11/13 16:44:05 by dait-atm          #+#    #+#             */
+/*   Updated: 2019/11/13 18:54:08 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "ft_libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write(fd, &c, 1);
+	char	*r;
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	if (!(r = malloc(ft_strlen(s) + 1)))
+		return (0);
+	while (s[i])
+	{
+		r[i] = f(i, s[i]);
+		i++;
+	}
+	r[i] = 0;
+	return (r);
 }

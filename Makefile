@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/13 15:10:16 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/13 18:48:17 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,9 @@ ft_strtrim.c \
 ft_itoa.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
-ft_split.c
+ft_split.c \
+ft_strmapi.c \
+ft_putendl_fd.c
 
 NAME 	= libft.a
 OBJS	= ${SRC:%.c=%.o}

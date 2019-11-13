@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:06:01 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 15:42:54 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:55:15 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s1len;
 	size_t	s2len;
 
+	if (!s1 || !s2)
+		return (0);
 	s2len = ft_strlen(s2);
 	s1len = ft_strlen(s1);
 	if (!(s3 = (malloc(sizeof(char) * (s1len + s2len + 1)))))

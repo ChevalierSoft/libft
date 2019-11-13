@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 15:09:42 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:49:15 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ void				*ft_calloc(size_t count, size_t size);
 void				*ft_print_memory(void *addr, size_t size);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char    			*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
-char                **ft_split(char const *s, char c);
+char				**ft_split(char const *s, char c);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void				ft_putendl_fd(char *s, int fd);
 
 #endif

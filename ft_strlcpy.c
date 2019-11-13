@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 12:50:36 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 14:44:32 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:57:52 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t			ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t	len;
 	size_t	i;
 
+	if (!src)
+		return (0);
 	len = ft_strlen(src);
 	i = 0;
 	if (len + 1 < size)
