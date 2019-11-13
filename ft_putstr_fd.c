@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 16:47:33 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 18:51:19 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 23:01:52 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (s)
 		while (*s)

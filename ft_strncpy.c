@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 21:11:13 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/07 00:19:58 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 22:11:27 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	size_t i;
 
 	i = 0;
-	while (len--)
+	while (len)
 	{
 		if (!src[i])
 		{
@@ -27,6 +27,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		}
 		dst[i] = src[i];
 		i++;
+		len--;
 	}
 	return (dst);
 }
