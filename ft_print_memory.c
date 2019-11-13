@@ -6,18 +6,11 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 19:58:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/08 17:56:23 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:56:37 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
-
-static char		trompette(int pouet)
-{
-	if (pouet >= 10)
-		return (pouet - 10 + 'a');
-	return ((char)(pouet += '0'));
-}
 
 static void		ft_print_hex(unsigned long v, int nbd)
 {

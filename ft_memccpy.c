@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:35:02 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 13:23:16 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:53:51 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_memccpy(void *dst, const void *src, int c, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (i < n && ((unsigned char *)src)[i] != 0)

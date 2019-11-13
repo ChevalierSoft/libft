@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:40:30 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/05 18:05:19 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:55:53 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char			*ft_strnstr(const char *src, const char *needle, size_t len)
 	unsigned int	ln;
 	long			stock;
 
+	len++;
+	len--;
 	if (!*needle)
 		return ((char *)src);
 	else if (ft_strchr_2(src, (int)needle[0]) < 0)

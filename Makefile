@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/13 18:48:17 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/13 20:15:04 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ YEL_COLOR	= \033[33;01m
 RED_COLOR	= \x1B[31m
 RST_COLOR	= \033[0m
 
-SRC			= ft_bzero.c \
+SRCS		= ft_bzero.c \
 ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
@@ -52,47 +52,28 @@ ft_split.c \
 ft_strmapi.c \
 ft_putendl_fd.c
 
-NAME 	= libft.a
-OBJS	= ${SRC:%.c=%.o}
-FLAGS	= -Wall -Wextra -Werror
-HEADER	= ft_libft.h
-dir		= srcs/
+NAME = libft.a
+OBJS = ${SRCS:.c=.o}
+FLAGS = -Wall -Wextra -Werror
+HDR  = includes
 
-all:	$(NAME) opti
-	@echo "Indexing the library \c"
-	#@ranlib $(NAME)
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+$(NAME): ${OBJS}
+	ar -rcs ${NAME} ${OBJS}
 
-#.c.o:
-#	@gcc -c $< -o $@ -Wall -Werror -Wextra
+%.o: %.c
+	gcc ${FLAGS} -c -o $@ $< -I ${HDR}
 
-opti:
-	@echo "Creating $(NAME)\c"
-	@ar -rcs ${NAME} $(OBJS)
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
-
-$(NAME) :
-	@echo "Creating object files\c"
-	@gcc -c $(SRC) $< -I. $(HEADER)
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
-
-root: all
-	mv $(NAME) ../
-
-rm:
-	rm a.out
+all: ${NAME}
 
 clean:
-	@echo "Deleting object files\c"
-	@rm -f $(OBJS) ft_libft.h.gch #$(OBJS)
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+	/bin/rm -f ${OBJS}
 
-fclean:	clean
-	@echo "Deleting $(NAME)\c"
-	@rm $(NAME)
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+fclean:
+	rm -f ${NAME} ${OBJS}
 
 re: fclean all
+
+.PHONY: fclean all clean re
 
 cat:
 	@echo "$(RED_COLOR)                         _"
