@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:54:33 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 15:53:41 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/13 16:40:41 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,37 +57,42 @@ static size_t		ft_strlen2(char **s, char c)
 	return (i);
 }
 
+static int			ptit_test_de_mort(char *s, char c, size_t *nbm, char ***lt)
+{
+	if (!s)
+		return (0);
+	if (!(ft_find_string_number(s, c, nbm)))
+		return (0);
+	if (!((*lt) = malloc(sizeof(char *) * (*nbm + 1))))
+		return (0);
+	return (1);
+}
+
 char				**ft_split(char const *s, char c)
 {
 	char	**lt;
-	size_t	nbm;
-	size_t	belica;
-	size_t	w;
 	char	*re;
+	size_t	jpp[3];
 
-	belica = 0;
+	if (!(ptit_test_de_mort((char *)s, c, &jpp[0], &lt)))
+		return (0);
+	jpp[1] = 0;
 	re = (char *)s;
-	if (!s)
-		return (0);
-	if (!(nbm = ft_find_string_number(s, c, &nbm)))
-		return (0);
-	if (!(lt = malloc(sizeof(char *) * nbm + 1)))
-		return (0);
-	while (belica < nbm)
+	while (jpp[1] < jpp[0])
 	{
-		w = ft_strlen2(&re, c) + 1;
-		if (!(lt[belica] = malloc(sizeof(char) * w)))
+		jpp[2] = ft_strlen2(&re, c) + 1;
+		if (!(lt[jpp[1]] = malloc(sizeof(char) * jpp[2])))
 			return (0);
-		while (w + 1)
+		while (jpp[2] + 1)
 		{
-			lt[belica][w] = re[w];
-			w--;
+			lt[jpp[1]][jpp[2]] = re[jpp[2]];
+			jpp[2]--;
 		}
-		w = ft_strlen2(&re, c);
-		re += w;
-		lt[belica][w] = 0;
-		belica++;
+		jpp[2] = ft_strlen2(&re, c);
+		re += jpp[2];
+		lt[jpp[1]][jpp[2]] = 0;
+		jpp[1]++;
 	}
-	lt[belica] = 0;
+	lt[jpp[1]] = 0;
 	return (lt);
 }
