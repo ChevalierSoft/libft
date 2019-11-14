@@ -27,6 +27,7 @@ typedef struct		s_list
 
 size_t				ft_strlen(const char *str);
 int					ft_toupper(int c);
+int					ft_tolower(int c);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *src, const char *ndl, size_t len);
