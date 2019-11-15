@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 static size_t		ft_find_string_number(const char *s, char c, size_t *nbm)
 {

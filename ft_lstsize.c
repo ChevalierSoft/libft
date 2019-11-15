@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 17:11:35 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 22:21:17 by dait-atm         ###   ########.fr       */
+/*   Created: 2019/11/15 15:29:49 by dait-atm          #+#    #+#             */
+/*   Updated: 2019/11/15 16:19:40 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strrchr(const char *s, int c)
+int ft_lstsize(t_list *lst)
 {
-	long			last;
+	int		i;
 
-	last = ft_strlen(s) - 1;
-	if (!(char)c)
-		return (ft_strchr(s, (char)c));
-	while (last >= 0)
+	i = 0;
+	if (lst)
 	{
-		if (s[last] == (char)c)
-			return (&((char *)s)[last]);
-		last--;
+		while (lst->content != NULL)
+		{
+			i++;
+			lst = lst->next;
+		}
 	}
-	return (0);
+	return (i);
 }
+

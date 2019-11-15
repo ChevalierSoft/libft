@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 static int	ft_nb_digit_custo(int n)
 {
@@ -41,7 +41,7 @@ char		*ft_itoa(int n)
 	if (n < 0)
 	{
 		m *= -1;
-		a[tm++] = (char) '-';
+		a[tm++] = (char)'-';
 	}
 	nbc = ft_nb_digit_custo(n);
 	while (m)

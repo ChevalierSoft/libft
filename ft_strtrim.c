@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 static int		ft_is_from_base(char c, const char *set)
 {
@@ -44,7 +44,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	beg;
 	size_t	size;
 	char	*s2;
-	
+
 	if (!s1 || !set)
 		return (0);
 	beg = faut_refaire(s1, set, 1);

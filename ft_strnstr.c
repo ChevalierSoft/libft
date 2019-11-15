@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 static int		ft_strchr_2(const char *s, char c)
 {
@@ -30,7 +30,6 @@ char			*ft_strnstr(const char *src, const char *needle, size_t len)
 {
 	long			i;
 	size_t			ln;
-	//long			stock;
 
 	len++;
 	len--;
@@ -42,7 +41,6 @@ char			*ft_strnstr(const char *src, const char *needle, size_t len)
 	i = -1;
 	while (src[++i] && len--)
 	{
-		//stock = ft_strchr_2(src + i, (char)needle[0]);
 		if (src[i] == 0)
 			return ((char *)src + i);
 		i++;

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 17:11:35 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 22:21:17 by dait-atm         ###   ########.fr       */
+/*   Created: 2019/11/15 14:38:10 by dait-atm          #+#    #+#             */
+/*   Updated: 2019/11/15 15:20:43 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strrchr(const char *s, int c)
+t_list	*ft_lstnew(void *content)
 {
-	long			last;
+	t_list *v;
 
-	last = ft_strlen(s) - 1;
-	if (!(char)c)
-		return (ft_strchr(s, (char)c));
-	while (last >= 0)
-	{
-		if (s[last] == (char)c)
-			return (&((char *)s)[last]);
-		last--;
-	}
-	return (0);
+	if (!(v = (malloc(sizeof(content)))))
+		return (0);
+	v->content = content;
+	v->next = 0;
+	return (v);
 }
