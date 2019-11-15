@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/15 16:12:12 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/15 17:00:46 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,11 @@ ft_putnbr_fd.c \
 ft_lstnew.c \
 ft_lstadd_front.c \
 ft_lstsize.c \
-ft_lstlast.c
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
+ft_lstclear.c
+
 
 NAME = libft.a
 OBJS = ${SRCS:.c=.o}

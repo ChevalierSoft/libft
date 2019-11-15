@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 15:20:58 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 18:14:33 by dait-atm         ###   ########.fr       */
+/*   Created: 2019/11/15 16:48:38 by dait-atm          #+#    #+#             */
+/*   Updated: 2019/11/15 16:58:02 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	new->next = *alst;
-	*alst = new;
+	del(lst);
 }

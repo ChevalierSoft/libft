@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:11:15 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 16:15:54 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/15 16:57:47 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst)
 	{
@@ -24,4 +24,3 @@ t_list *ft_lstlast(t_list *lst)
 	}
 	return (NULL);
 }
-

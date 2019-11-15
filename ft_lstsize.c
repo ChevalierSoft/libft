@@ -6,20 +6,21 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 15:29:49 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 16:19:40 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/15 17:53:18 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		i;
 
 	i = 0;
 	if (lst)
 	{
-		while (lst->content != NULL)
+		i++;
+		while (lst->next != NULL)
 		{
 			i++;
 			lst = lst->next;
@@ -27,4 +28,3 @@ int ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-

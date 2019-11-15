@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 15:20:58 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 18:14:33 by dait-atm         ###   ########.fr       */
+/*   Created: 2019/11/15 16:59:45 by dait-atm          #+#    #+#             */
+/*   Updated: 2019/11/15 17:24:11 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	new->next = *alst;
-	*alst = new;
+	t_list *v;
+	t_list *u;
+
+	v = *lst;
+		while (v)
+		{
+			u = v->next;
+			del(v);
+			v = u;
+		}
+	free(*lst);
 }
