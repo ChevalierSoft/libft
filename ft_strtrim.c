@@ -55,3 +55,13 @@ char			*ft_strtrim(char const *s1, char const *set)
 	s2[size] = 0;
 	return (s2);
 }
+/*
+int main(void)
+{
+	char *s1 = ft_strtrim("          ", " ");
+	char *s2 = strtrim("          ", " ");
+	ft_print_memory(s1, 16);
+	write(1, "\n", 1);
+	ft_print_memory(s2, 16);
+	return (strcmp(s1,s2));
+}*/
