@@ -18,11 +18,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list *u;
 
 	v = *lst;
-		while (v)
-		{
-			u = v->next;
-			del(v);
-			v = u;
-		}
-	free(*lst);
+	while (v)
+	{
+		u = v->next;
+		del(v);
+		v = u;
+	}
+	free(lst);
 }

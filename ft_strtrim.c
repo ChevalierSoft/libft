@@ -45,7 +45,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	size;
 	char	*s2;
 
-	if (!s1 || !set)
+	if (!set || !s1)
 		return (0);
 	beg = faut_refaire(s1, set, 1);
 	size = 1 + faut_refaire(s1, set, -1) - beg;
