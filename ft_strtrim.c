@@ -39,6 +39,17 @@ static size_t	faut_refaire(const char *s, const char *set, int sens)
 	return (-1);
 }
 
+int				ft_stream_snip(const char *s1, const char *set)
+{
+	while (*s1)
+	{
+		if (ft_is_from_base(*s1, set))
+			return (0);
+		s1++;
+	}
+	return (1);
+}
+
 char			*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	beg;
@@ -47,6 +58,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	if (!set || !s1)
 		return (0);
+	//if (strncmp(set, "", 1))
+	//	return (ft_strdup(""));
 	beg = faut_refaire(s1, set, 1);
 	size = 1 + faut_refaire(s1, set, -1) - beg;
 	if (!(s2 = malloc(sizeof(char) * size + 1)))
