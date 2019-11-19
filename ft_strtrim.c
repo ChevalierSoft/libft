@@ -58,8 +58,10 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	if (!set || !s1)
 		return (0);
-	//if (strncmp(set, "", 1))
+	//if (!strcmp(set, ""))
 	//	return (ft_strdup(""));
+	if (ft_stream_snip(s1, set))
+		return (s1);
 	beg = faut_refaire(s1, set, 1);
 	size = 1 + faut_refaire(s1, set, -1) - beg;
 	if (!(s2 = malloc(sizeof(char) * size + 1)))
@@ -69,12 +71,16 @@ char			*ft_strtrim(char const *s1, char const *set)
 	return (s2);
 }
 /*
+#include <stdlib.h>
+#include <unistd.h>
 int main(void)
 {
 	char *s1 = ft_strtrim("          ", " ");
-	char *s2 = strtrim("          ", " ");
+	//char *s2 = strtrim("          ", " ");
 	ft_print_memory(s1, 16);
 	write(1, "\n", 1);
-	ft_print_memory(s2, 16);
-	return (strcmp(s1,s2));
-}*/
+	//ft_print_memory(s2, 16);
+	//return (strcmp(s1,s2));
+	return (0);
+}
+*/
