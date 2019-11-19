@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/19 17:54:09 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/20 00:04:58 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,21 +71,31 @@ FLAGS = -Wall -Wextra -Werror
 HDR  = includes
 
 $(NAME): ${OBJS}
+	@echo "Creating $(NAME)\c"
 	@ar -rcs ${NAME} ${OBJS}
+	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
 %.o: %.c
+	@echo "Creating object files\c"
 	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
+	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
-all: bonus
+all: $(NAME)
 
-bonus: $(OBJS) $(BBJS) 
+bonus: $(OBJS) $(BBJS)
+	@echo "Creating $(NAME) with bonus\c"
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
+	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
 clean:
+	@echo "Deleting object files\c"
 	@/bin/rm -f $(OBJS) $(BBJS)
+	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
 fclean: clean
+	@echo "Deleting $(NAME)\c"
 	@/bin/rm -f $(NAME)
+	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
 re: fclean all
 

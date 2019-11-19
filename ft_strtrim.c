@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:17:25 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/19 15:46:15 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/19 23:46:30 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	size;
 	char	*s2;
 
+	if (!s1)
+		return (0);
 	if (!set || !*s1)
 		return ((char *)s1);
 	beg = count_setlen_lr(s1, set, 1);

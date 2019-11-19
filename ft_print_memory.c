@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 19:58:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 19:56:37 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/19 23:39:55 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ static void		ft_aff_msg(void *addr, int nbr)
 		c = (char *)addr;
 		if ((*c >= ' ' && *c <= '~'))
 			write(1, &(*c), 1);
+		else if (*c == 0)
+		{
+			write(1, "\x1B[31m", 5);
+			write(1, ".", 1);
+			write(1, "\x1B[0m", 5);
+		}
 		else
 			write(1, ".", 1);
 		addr++;
