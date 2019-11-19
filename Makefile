@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/19 16:10:30 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/19 17:44:55 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,8 @@ ft_lstiter_bonus.c \
 ft_lstlast_bonus.c \
 ft_lstmap_bonus.c \
 ft_lstnew_bonus.c \
-ft_lstsize_bonus.c
-
+ft_lstsize_bonus.c \
+ft_strncpy_bonus.c
 NAME = libft.a
 OBJS = ${SRCS:.c=.o}
 BBJS = ${BONUS:.c=.o} 
@@ -75,9 +75,9 @@ $(NAME): ${OBJS}
 %.o: %.c
 	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
 
-all: ${NAME}
+all: bonus
 
-bonus: $(OBJS) $(BBJS)
+bonus: $(OBJS) $(BBJS) 
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
 
 clean:
