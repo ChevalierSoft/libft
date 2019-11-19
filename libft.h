@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 17:00:25 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:52:56 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFT_H
+#ifndef LIBFT_H
 
-# define FT_LIBFT_H
+# define LIBFT_H
 
 # include <stdlib.h>
 # include <stdio.h>

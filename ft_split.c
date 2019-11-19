@@ -6,93 +6,100 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:54:33 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 16:40:41 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/18 15:38:06 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		ft_find_string_number(const char *s, char c, size_t *nbm)
+int		ft_is_charset(char c, char charset)
 {
-	size_t	i;
+	if (c == charset)
+		return (1);
+	return (0);
+}
 
-	*nbm = 1;
-	i = 0;
-	while (s[i] == c)
-		i++;
-	if (!s[i])
-		*nbm = 0;
-	while (s[i])
+int		ft_size_w(char *str, char charset, int i)
+{
+	int j;
+
+	j = 0;
+	while (str[i])
 	{
-		if (s[i] == c)
+		if (ft_is_charset(str[i], charset))
+			return (j);
+		j++;
+		i++;
+	}
+	return (j);
+}
+
+int		ft_count_words(char *str, char charset)
+{
+	int i;
+	int j;
+	int count_word;
+
+	i = 0;
+	j = 0;
+	count_word = 0;
+	while (str[i])
+	{
+		if (ft_is_charset(str[i], charset))
 		{
-			(*nbm)++;
-			while (s[i] == c)
-				i++;
-			if (!s[i])
-			{
-				(*nbm)--;
-				break ;
-			}
+			j = 0;
+		}
+		else if (!(ft_is_charset(str[i], charset)) && j == 0)
+		{
+			j = 1;
+			count_word++;
 		}
 		i++;
 	}
-	return (*nbm);
+	return (count_word);
 }
 
-static size_t		ft_strlen2(char **s, char c)
+char	**ft_tab(char *str, char charset, char **tab, int i)
 {
-	size_t	i;
-	char	*p;
+	int j;
+	int k;
 
-	i = 0;
-	while (**s == c)
-		(*s)++;
-	p = *s;
-	while (*p != c && *p)
+	j = 0;
+	k = 0;
+	while (str[i])
 	{
-		p++;
+		if (ft_is_charset(str[i], charset) &&
+		!(ft_is_charset(str[i + 1], charset)) && j > 0)
+		{
+			k++;
+			j = 0;
+		}
+		if (!(ft_is_charset(str[i], charset)))
+		{
+			if (j == 0)
+				tab[k] = malloc(sizeof(char) * ft_size_w(str, charset, i) + 1);
+			tab[k][j] = str[i];
+			tab[k][j + 1] = 0;
+			j++;
+		}
 		i++;
 	}
-	return (i);
+	tab[ft_count_words(str, charset)] = NULL;
+	return (tab);
 }
 
-static int			ptit_test_de_mort(char *s, char c, size_t *nbm, char ***lt)
+char	**ft_split(char const *str, char c)
 {
-	if (!s)
-		return (0);
-	if (!(ft_find_string_number(s, c, nbm)))
-		return (0);
-	if (!((*lt) = malloc(sizeof(char *) * (*nbm + 1))))
-		return (0);
-	return (1);
-}
+	char	**tab;
+	int		i;
+	int		j;
+	int		k;
 
-char				**ft_split(char const *s, char c)
-{
-	char	**lt;
-	char	*re;
-	size_t	jpp[3];
-
-	if (!(ptit_test_de_mort((char *)s, c, &jpp[0], &lt)))
-		return (0);
-	jpp[1] = 0;
-	re = (char *)s;
-	while (jpp[1] < jpp[0])
-	{
-		jpp[2] = ft_strlen2(&re, c) + 1;
-		if (!(lt[jpp[1]] = malloc(sizeof(char) * jpp[2])))
-			return (0);
-		while (jpp[2] + 1)
-		{
-			lt[jpp[1]][jpp[2]] = re[jpp[2]];
-			jpp[2]--;
-		}
-		jpp[2] = ft_strlen2(&re, c);
-		re += jpp[2];
-		lt[jpp[1]][jpp[2]] = 0;
-		jpp[1]++;
-	}
-	lt[jpp[1]] = 0;
-	return (lt);
+	i = 0;
+	j = 0;
+	k = 0;
+	if (!(tab = malloc(sizeof(char*) * ft_count_words((char *)str, c) + 1)))
+		return (NULL);
+	tab = ft_tab((char *)str, c, tab, i);
+	return (tab);
 }

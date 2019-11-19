@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:28:19 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 18:21:48 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:08:06 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,28 @@ static int	ft_nb_digit_custo(int n)
 void		ft_putnbr_fd(int n, int fd)
 {
 	char			a[12];
-	unsigned char	i;
-	int				nbc;
+	int				i;
 
 	if (n == -2147483648)
-	{
 		write(fd, "-2147483648", 11);
-		return ;
-	}
-	nbc = ft_nb_digit_custo(n);
-	i = 0;
-	if (n < 0)
+	else if (n == 0)
+		write(fd, "0", 1);
+	else
 	{
-		n = -n;
-		a[0] = '-';
-		write(fd, "-", 1);
+		i = ft_nb_digit_custo(n);
+		a[i] = 0;
+		if (n < 0)
+		{
+			n = -n;
+			a[0] = '-';
+			i++;
+		}
+		while (i > 0 && n)
+		{
+			a[i - 1] = n % 10 + '0';
+			n /= 10;
+			i--;
+		}
+		write(fd, a, ft_strlen(a));
 	}
-	a[nbc] = 0;
-	while (nbc + 2)
-	{
-		a[--nbc] = n % 10 + '0';
-		n /= 10;
-	}
-	write(fd, a, ft_strlen(a));
 }

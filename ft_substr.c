@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:06:54 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 14:25:32 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/18 14:27:17 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!(p = malloc(sizeof(char) * len + 1)))
 		return (0);
 	i = 0;
-
 	if (start < ft_strlen(s))
 	{
-		p[len] = 0;
 		while (len-- && s[i])
 		{
 			p[i] = s[i + start];
 			i++;
 		}
 	}
+	p[i] = 0;
 	return (p);
 }
-

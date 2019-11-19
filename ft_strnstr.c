@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:40:30 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 19:55:53 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/18 14:59:00 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,22 @@ static int		ft_strchr_2(const char *s, char c)
 
 char			*ft_strnstr(const char *src, const char *needle, size_t len)
 {
-	long			i;
+	size_t			i;
 	size_t			ln;
 
-	len++;
-	len--;
+	i = 0;
 	if (!*needle)
 		return ((char *)src);
+	if (!needle)
+		return (0);
 	else if (ft_strchr_2(src, needle[0]) < 0)
 		return (0);
 	ln = ft_strlen(needle);
-	i = -1;
-	while (src[++i] && len--)
+	while (i < len && src[i])
 	{
-		if (src[i] == 0)
+		if (!ft_strncmp((char *)(src + i), (char *)needle, ln) && len - i >= ln)
 			return ((char *)src + i);
 		i++;
-		if (!ft_strncmp((char *)(src + i), (char *)needle, ln))
-			return ((char *)src + i);
 	}
 	return (0);
 }
