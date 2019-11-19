@@ -39,13 +39,13 @@ void		ft_putnbr_fd(int n, int fd)
 	else
 	{
 		i = ft_nb_digit_custo(n);
-		a[i] = 0;
 		if (n < 0)
 		{
 			n = -n;
 			a[0] = '-';
 			i++;
 		}
+		a[i] = 0;
 		while (i > 0 && n)
 		{
 			a[i - 1] = n % 10 + '0';
