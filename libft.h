@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/16 16:52:56 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:54:53 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strchr(const char *s, int c);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
-char				*ft_strncpy(char *dst, const char *src, size_t len);
+char				*ft_strncpy2(char *dst, const char *src, size_t len);
 char				*ft_strdup(const char *s1);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_print_memory(void *addr, size_t size);
@@ -70,5 +70,6 @@ t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
+char				*ft_strncpy(char *dst, const char *src, size_t len);
 
 #endif

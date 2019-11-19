@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 21:11:13 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 22:11:27 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:47:48 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strncpy2(char *dst, const char *src, size_t len)
 {
 	size_t i;
 
