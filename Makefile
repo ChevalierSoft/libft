@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/18 17:23:37 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/19 15:07:27 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,26 +51,21 @@ ft_putstr_fd.c \
 ft_split.c \
 ft_strmapi.c \
 ft_putendl_fd.c \
-ft_putnbr_fd.c \
+ft_putnbr_fd.c
+
+BONUS = ft_lstadd_back_bonus.c \
+ft_lstadd_front_bonus.c \
+ft_lstclear_bonus.c \
+ft_lstdelone_bonus.c \
+ft_lstiter_bonus.c \
+ft_lstlast_bonus.c \
+ft_lstmap_bonus.c \
 ft_lstnew_bonus.c \
-ft_lstadd_front.c \
-ft_lstsize.c \
-ft_lstlast.c \
-ft_lstadd_back.c \
-ft_lstdelone.c \
-ft_lstclear.c
-
-BONUS = ft_lstnew_bonus.o \
-ft_lstadd_front.o \
-ft_lstsize.o \
-ft_lstlast.o \
-ft_lstadd_back.o \
-ft_lstdelone.o \
-ft_lstclear.o
-
+ft_lstsize_bonus.c
 
 NAME = libft.a
 OBJS = ${SRCS:.c=.o}
+BBJS = ${BONUS:.c=.o} 
 FLAGS = -Wall -Wextra -Werror
 HDR  = includes
 
@@ -82,14 +77,19 @@ $(NAME): ${OBJS}
 
 all: ${NAME}
 
-BONUS: $(NAME)
-	ar -rcs $(OBJS) $(BONUS)
+BONUS: $(OBJS) $(BBJS)
+	if [ $(BBJS) -eq 0 ]; then\
+		ar -rcs $(NAME) $(OBJS) $(BBJS)\
+	fi
 
 clean:
 	/bin/rm -f ${OBJS}
 
 fclean:
 	rm -f ${NAME} ${OBJS}
+
+fcleanBonus:
+	rm -f ${NAME} ${OBJS} ${BBJS}
 
 re: fclean all
 
