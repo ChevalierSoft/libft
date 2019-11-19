@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2019/11/19 15:07:27 by dait-atm         ###   ########.fr        #
+#    Updated: 2019/11/19 16:10:30 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,30 +70,25 @@ FLAGS = -Wall -Wextra -Werror
 HDR  = includes
 
 $(NAME): ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
+	@ar -rcs ${NAME} ${OBJS}
 
 %.o: %.c
-	gcc ${FLAGS} -c -o $@ $< -I ${HDR}
+	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
 
 all: ${NAME}
 
-BONUS: $(OBJS) $(BBJS)
-	if [ $(BBJS) -eq 0 ]; then\
-		ar -rcs $(NAME) $(OBJS) $(BBJS)\
-	fi
+bonus: $(OBJS) $(BBJS)
+	@ar -rcs $(NAME) $(OBJS) $(BBJS)
 
 clean:
-	/bin/rm -f ${OBJS}
+	@/bin/rm -f $(OBJS) $(BBJS)
 
-fclean:
-	rm -f ${NAME} ${OBJS}
-
-fcleanBonus:
-	rm -f ${NAME} ${OBJS} ${BBJS}
+fclean: clean
+	@/bin/rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: fclean all clean re
+.PHONY: fclean all clean re bonus
 
 cat:
 	@echo "$(RED_COLOR)                         _"
