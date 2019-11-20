@@ -21,7 +21,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	{
 		v = ft_lstlast(*alst);
 		v->next = new;
-		v->next->next = NULL;
+		//v->next->next = NULL;
 	}
 	/*
 	t_list *v;
