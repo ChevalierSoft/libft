@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:48:38 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 16:58:02 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/11/20 18:03:47 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	del(lst);
+	del(lst->content);
+	free(lst);
 }

@@ -80,7 +80,7 @@ $(NAME): ${OBJS}
 	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
 	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
-all: $(NAME)
+all: bonus
 
 bonus: $(OBJS) $(BBJS)
 	@echo "Creating $(NAME) with bonus\c"
