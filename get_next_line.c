@@ -17,7 +17,18 @@
 # define BUFFER_SIZE 32
 #endif
 
-#define FD_MAX 75000
+#ifdef __unix__
+# define FD_MAX OPEN_MAX
+#endif
+
+#ifdef OS_Windows
+# define FD_MAX FOPEN_MAX
+#endif
+
+#ifndef FD_MAX
+# define FD_MAX 20
+#endif
+
 #define ALERTE -1
 #define RAS 619
 
@@ -62,9 +73,9 @@ static int				bosg(int *a, char *buff, char **line, int res)
 
 int						get_next_line(int fd, char **line)
 {
-	static long	res[OPEN_MAX];
-	static char	buff[OPEN_MAX][BUFFER_SIZE];
-	static int	a[OPEN_MAX];
+	static long	res[FD_MAX];
+	static char	buff[FD_MAX][BUFFER_SIZE];
+	static int	a[FD_MAX];
 	int			is_ok;
 
 	if (fd < 0 || line == NULL || BUFFER_SIZE < 1 || read(fd, buff[fd], 0) < 0)
