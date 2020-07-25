@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 19:58:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/19 23:39:55 by dait-atm         ###   ########.fr       */
+/*   Updated: 2019/07/25 08:38:40 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,27 @@ static void		ft_print_hex(unsigned long v, int nbd)
 	}
 }
 
+static void		ft_prepare_oct_print(void *addr)
+{
+	unsigned long *l;
+
+	l = (void *)addr;
+	if ((*l & 0xff) == 0)
+	{
+		write(1, "\x1B[31;02m", 8);
+		ft_print_hex(*l, 3);
+		write(1, "\x1B[0m", 4);
+	}
+	else if ((*l & 0xff) == 0xff)
+	{
+		write(1, "\x1B[36;02m", 8);
+		ft_print_hex(*l, 3);
+		write(1, "\x1B[0m", 4);
+	}
+	else
+		ft_print_hex(*l, 3);
+}
+
 static int		ft_aff_oct(void *addr, unsigned int size)
 {
 	int		cpt;
@@ -53,7 +74,7 @@ static int		ft_aff_oct(void *addr, unsigned int size)
 		cpt = size;
 	while (cpt)
 	{
-		ft_print_hex((unsigned long)((char*)addr), 3);
+		ft_prepare_oct_print(addr);
 		if (flagou)
 		{
 			write(1, " ", 1);
@@ -80,11 +101,9 @@ static void		ft_aff_msg(void *addr, int nbr)
 		if ((*c >= ' ' && *c <= '~'))
 			write(1, &(*c), 1);
 		else if (*c == 0)
-		{
-			write(1, "\x1B[31m", 5);
-			write(1, ".", 1);
-			write(1, "\x1B[0m", 5);
-		}
+			write(1, "\x1B[31;02m.\x1B[0m", 13);
+		else if ((*c & 0xff) == 0xff)
+			write(1, "\x1B[36;02m.\x1B[0m", 13);
 		else
 			write(1, ".", 1);
 		addr++;
