@@ -90,22 +90,28 @@ static int		ft_aff_oct(void *addr, unsigned int size)
 	return (sp);
 }
 
+void ft_print(char *s)
+{
+	write(1, s, ft_strlen(s));
+}
+
 static void		ft_aff_msg(void *addr, int nbr)
 {
 	char	*c;
 
-	c = (char *)addr;
 	while (nbr)
 	{
 		c = (char *)addr;
-		if ((*c >= ' ' && *c <= '~'))
+		if ((*c & 0xff) == 0x2e)
+			write(1, ".", 1);
+		else if ((*c >= ' ' && *c <= '~'))
 			write(1, &(*c), 1);
 		else if (*c == 0)
 			write(1, "\x1B[31;02m.\x1B[0m", 13);
 		else if ((*c & 0xff) == 0xff)
 			write(1, "\x1B[36;02m.\x1B[0m", 13);
 		else
-			write(1, ".", 1);
+			write(1, "\x1B[1;30m.\x1B[0m", 12);
 		addr++;
 		nbr--;
 	}
@@ -121,7 +127,7 @@ void			*ft_print_memory(void *addr, size_t size)
 		ft_print_hex((unsigned long)addr, 16);
 		write(1, ": ", 2);
 		ft_aff_oct(addr, size);
-		ft_aff_msg(addr, 16);
+		ft_aff_msg(addr, 16);	
 		write(1, "\n", 1);
 		size -= 16;
 		addr += 16;
