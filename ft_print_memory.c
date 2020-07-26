@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 19:58:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/07/25 08:38:40 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/07/26 08:12:49 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,6 @@ static int		ft_aff_oct(void *addr, unsigned int size)
 	return (sp);
 }
 
-void ft_print(char *s)
-{
-	write(1, s, ft_strlen(s));
-}
-
 static void		ft_aff_msg(void *addr, int nbr)
 {
 	char	*c;
@@ -127,7 +122,7 @@ void			*ft_print_memory(void *addr, size_t size)
 		ft_print_hex((unsigned long)addr, 16);
 		write(1, ": ", 2);
 		ft_aff_oct(addr, size);
-		ft_aff_msg(addr, 16);	
+		ft_aff_msg(addr, 16);
 		write(1, "\n", 1);
 		size -= 16;
 		addr += 16;
