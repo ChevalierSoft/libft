@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/27 00:38:40 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/07/27 01:46:24 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,28 @@ typedef struct	s_list
 #  define BLK   "\x1B[30m"
 # endif
 # ifndef RED
-# define RED   "\x1B[31m"
+#  define RED   "\x1B[31m"
 # endif
 # ifndef GRN
-# define GRN   "\x1B[32m"
+#  define GRN   "\x1B[32m"
 # endif
 # ifndef YEL
-# define YEL   "\x1B[33m"
+#  define YEL   "\x1B[33m"
 # endif
 # ifndef BLU
-# define BLU   "\x1B[34m"
+#  define BLU   "\x1B[34m"
 # endif
 # ifndef MAG
-# define MAG   "\x1B[35m"
+#  define MAG   "\x1B[35m"
 # endif
 # ifndef CYN
-# define CYN   "\x1B[36m"
+#  define CYN   "\x1B[36m"
 # endif
 # ifndef WHT
-# define WHT   "\x1B[37m"
+#  define WHT   "\x1B[37m"
 # endif
 # ifndef RST
-# define RST   "\x1B[0m"
+#  define RST   "\x1B[0m"
 # endif
 
 size_t			ft_strlen(const char *str);
@@ -97,6 +97,10 @@ char			i2c(int i);
 int				ft_nb_digit(int n);
 
 int				get_next_line(int fd, char **line);
+
+void			ft_print(char *s);
+void			ft_printr(char *s);
+void			ft_help(void);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
