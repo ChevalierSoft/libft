@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/11 05:56:07 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/07/27 00:38:40 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,34 @@ typedef struct	s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+# ifndef BLK
+#  define BLK   "\x1B[30m"
+# endif
+# ifndef RED
+# define RED   "\x1B[31m"
+# endif
+# ifndef GRN
+# define GRN   "\x1B[32m"
+# endif
+# ifndef YEL
+# define YEL   "\x1B[33m"
+# endif
+# ifndef BLU
+# define BLU   "\x1B[34m"
+# endif
+# ifndef MAG
+# define MAG   "\x1B[35m"
+# endif
+# ifndef CYN
+# define CYN   "\x1B[36m"
+# endif
+# ifndef WHT
+# define WHT   "\x1B[37m"
+# endif
+# ifndef RST
+# define RST   "\x1B[0m"
+# endif
 
 size_t			ft_strlen(const char *str);
 int				ft_toupper(int c);
