@@ -14,7 +14,7 @@
 #include "limits.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 64
 #endif
 
 #ifdef __unix__
@@ -32,32 +32,32 @@
 #define ALERTE -1
 #define RAS 619
 
-static inline int		ret_a_plus(int *a, int r)
+static inline int		ret_a_plus(int *pt, int r)
 {
-	(*a)++;
+	(*pt)++;
 	return (r);
 }
 
-static inline int		ret_a_zero(int *a, int r)
+static inline int		ret_a_zero(int *pt, int r)
 {
-	(*a) = 0;
+	(*pt) = 0;
 	return (r);
 }
 
-static int				bosg(int *a, char *buff, char **line, int res)
+static int				bosg(int *pt, char *buff, char **line, int res)
 {
 	char mas[2];
 	char *tmp;
 
 	mas[1] = '\0';
-	while (*a < res)
+	while (*pt < res)
 	{
-		tmp = (*line);
-		if (buff[*a] == '\n')
-			return (ret_a_plus(a, 1));
+		if (buff[*pt] == '\n')
+			return (ret_a_plus(pt, 1));
 		else
 		{
-			mas[0] = buff[(*a)++];
+			tmp = (*line);
+			mas[0] = buff[(*pt)++];
 			if (!((*line) = ft_strjoin(tmp, mas)))
 			{
 				free(tmp);
@@ -67,7 +67,7 @@ static int				bosg(int *a, char *buff, char **line, int res)
 		}
 	}
 	if (res != BUFFER_SIZE)
-		return (ret_a_zero(a, 0));
+		return (ret_a_zero(pt, 0));
 	return (RAS);
 }
 
