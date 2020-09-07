@@ -76,6 +76,8 @@ BBJS = ${BONUS:.c=.o}
 FLAGS = -Wall -Wextra -Werror
 HDR  = includes
 
+all: bonus
+
 $(NAME): ${OBJS}
 	@echo "\rCreating $(NAME)\c"
 	@ar -rcs ${NAME} ${OBJS}
@@ -87,10 +89,8 @@ $(NAME): ${OBJS}
 	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)\c"
 	@echo "\r                                        \c"
 
-all: $(NAME)
-
 bonus: $(OBJS) $(BBJS)
-	@echo "\nCreating $(NAME) with bonus\c"
+	@echo "\nCreating $(NAME) with lists\c"
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
 	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 

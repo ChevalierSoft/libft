@@ -9,7 +9,7 @@ t_list				*ft_lstnew(void *v)
 		write(1, "not enough space\n", 16);
 		return (NULL);
 	}
-	n->v = v;
+	n->content = v;
 	n->next = NULL;
 	return (n);
 }

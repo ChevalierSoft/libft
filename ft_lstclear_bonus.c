@@ -12,7 +12,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = (*lst)->next;
 		ft_lstdelone(tmp, del);
 	}
-	del((*lst)->v);
+	del((*lst)->content);
 	free(*lst);
 	*lst = NULL;
 }
