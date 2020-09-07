@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void		ft_print_hex(unsigned long v, int nbd)
+static void		ft_print_hex(uint64_t v, int nbd)
 {
 	unsigned long	tab[nbd];
 	long			j;
@@ -49,6 +49,7 @@ static void		ft_prepare_oct_print(void *addr)
 	{
 		write(1, "\x1B[31;02m", 8);
 		ft_print_hex(*l, 3);
+
 		write(1, "\x1B[0m", 4);
 	}
 	else if ((*l & 0xff) == 0xff)
@@ -119,7 +120,7 @@ void			*ft_print_memory(void *addr, size_t size)
 	aerosol = 0;
 	while (size > 16)
 	{
-		ft_print_hex((unsigned long)addr, 16);
+		ft_print_hex((uint64_t)((uint64_t *)addr), 16);
 		write(1, ": ", 2);
 		ft_aff_oct(addr, size);
 		ft_aff_msg(addr, 16);
@@ -129,7 +130,7 @@ void			*ft_print_memory(void *addr, size_t size)
 	}
 	if (size)
 	{
-		ft_print_hex((unsigned long)addr, 16);
+		ft_print_hex((uint64_t)addr, 16);
 		write(1, ": ", 2);
 		aerosol = 40 - ft_aff_oct(addr, size);
 		while (aerosol-- > 0)
