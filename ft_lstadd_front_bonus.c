@@ -1,19 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 15:20:58 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/15 18:14:33 by dait-atm         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void				ft_lstadd_front(t_list **alst, t_list *nlst)
 {
-	new->next = *alst;
-	*alst = new;
+	if (!*alst)
+	{
+		*alst = nlst;
+	}
+	else
+	{
+		nlst->next = *alst;
+		*alst = nlst;
+	}
 }

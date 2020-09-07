@@ -1,24 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 16:23:03 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/20 16:39:16 by dait-atm         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *v;
+	t_list *n;
 
-	if (alst)
+	if (*alst)
 	{
-		v = ft_lstlast(*alst);
-		v->next = new;
+		n = ft_lstlast(*alst);
+		n->next = new;
+	}
+	else
+	{
+		*alst = new;
 	}
 }

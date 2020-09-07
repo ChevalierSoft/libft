@@ -1,24 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 14:38:10 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/21 17:12:01 by dait-atm         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list				*ft_lstnew(void *v)
 {
-	t_list *v;
+	t_list *n;
 
-	if (!(v = (malloc(sizeof(t_list)))))
-		return (0);
-	v->content = content;
-	v->next = NULL;
-	return (v);
+	if (!(n = malloc(sizeof(t_list))))
+	{
+		write(1, "not enough space\n", 16);
+		return (NULL);
+	}
+	n->v = v;
+	n->next = NULL;
+	return (n);
 }
