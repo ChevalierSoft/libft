@@ -18,7 +18,7 @@
 #endif
 
 #ifdef __unix__
-# define FD_MAX OPEN_MAX
+# define FD_MAX FOPEN_MAX
 #endif
 
 #ifdef OS_Windows
