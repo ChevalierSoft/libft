@@ -53,6 +53,7 @@ ft_strmapi.c \
 ft_putendl_fd.c \
 ft_putnbr_fd.c \
 ft_abs.c \
+ft_fabs.c \
 ft_isneg.c \
 c2i.c \
 i2c.c \
@@ -68,7 +69,8 @@ ft_lstlast_bonus.c \
 ft_lstmap_bonus.c \
 ft_lstnew_bonus.c \
 ft_lstsize_bonus.c \
-ft_strncpy_bonus.c
+ft_strncpy_bonus.c \
+ft_lstgetnb.c
 
 NAME = libft.a
 OBJS = ${SRCS:.c=.o}

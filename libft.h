@@ -93,6 +93,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 int				ft_isneg(long long i);
 int				ft_abs(long long i);
+float			ft_fabs(float f);
 int				c2i(char c);
 char			i2c(int i);
 int				ft_nb_digit(int n);
@@ -113,5 +114,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
 char			*ft_strncpy(char *dst, const char *src, size_t len);
+
+t_list			*ft_lstgetnb(t_list *alst, int nb);
 
 #endif
