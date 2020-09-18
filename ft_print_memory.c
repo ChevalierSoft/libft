@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/04 19:58:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/26 08:12:49 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/09/18 02:28:41 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static void		ft_prepare_oct_print(void *addr)
 	{
 		write(1, "\x1B[31;02m", 8);
 		ft_print_hex(*l, 3);
-
 		write(1, "\x1B[0m", 4);
 	}
 	else if ((*l & 0xff) == 0xff)
