@@ -97,6 +97,7 @@ float			ft_fabs(float f);
 int				c2i(char c);
 char			i2c(int i);
 int				ft_nb_digit(int n);
+void			ft_swap_float(float *a, float *b);
 
 int				get_next_line(int fd, char **line);
 

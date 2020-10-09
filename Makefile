@@ -58,7 +58,8 @@ ft_isneg.c \
 c2i.c \
 i2c.c \
 ft_nb_digit.c \
-get_next_line.c
+get_next_line.c \
+ft_swap_float.c
 
 BONUS = ft_lstadd_back_bonus.c \
 ft_lstadd_front_bonus.c \
