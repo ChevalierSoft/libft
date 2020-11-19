@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2020/11/17 15:27:23 by dait-atm         ###   ########.fr        #
+#    Updated: 2020/11/19 08:02:11 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ i2c.c \
 ft_nb_digit.c \
 get_next_line.c \
 ft_swap_float.c \
-ft_strdel_array.c
+ft_strdel_array.c \
+ft_print.c
 
 BONUS = ft_lstadd_back_bonus.c \
 ft_lstadd_front_bonus.c \
