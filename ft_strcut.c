@@ -6,7 +6,7 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:24:56 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/11/23 11:39:21 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/11/23 12:43:12 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcut(char *s, int beg, int end)
 	int		i;
 	char	*d;
 
-	if (!s || beg <= end)
+	if (!s || beg >= end)
 		return (NULL);
 	d = malloc(sizeof(char) * (end - beg + 1));
 	if (!d)
