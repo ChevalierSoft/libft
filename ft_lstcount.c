@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:08:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/11/23 20:14:31 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:10:11 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	ft_lstcount(t_list *l)
 {
-	int	i;
+	t_list	*n;
+	int		i;
 
+	n = l;
 	i = 0;
-	while (l)
+	while (n)
 	{
-		l = l->next;
-		i = 0;
+		n = n->next;
+		i++;
 	}
 	return (i);
 }
