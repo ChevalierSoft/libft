@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2020/11/23 20:12:35 by dait-atm         ###   ########.fr        #
+#    Updated: 2020/12/08 22:51:29 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ ft_swap_float.c \
 ft_strdel_array.c \
 ft_print.c \
 ft_strcut.c \
-ft_lstcount.c
+ft_lstcount.c \
+ft_realloc.c
 
 BONUS = ft_lstadd_back_bonus.c \
 ft_lstadd_front_bonus.c \
