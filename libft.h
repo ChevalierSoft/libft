@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/16 11:16:50 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/16 13:59:25 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct	s_list
 # endif
 
 size_t			ft_strlen(const char *str);
+size_t			ft_strlen_array(const char **str);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			*ft_memmove(void *dst, const void *src, size_t len);
