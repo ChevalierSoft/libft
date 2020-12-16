@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:06:01 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/19 17:53:30 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/16 11:02:05 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strncpy2(s3 + s1len, s2, s2len);
 	s3[s1len + s2len] = '\0';
 	return (s3);
+}
+
+void	ft_strjoin2(char **s1, char const *s2)
+{
+	char	*new_s1;
+
+	if (!(new_s1 = ft_strjoin((char const *)(*s1), s2)))
+		return ;
+	free(*s1);
+	s1 = &new_s1;
 }
