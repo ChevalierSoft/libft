@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 06:58:02 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/24 07:28:06 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/24 07:46:43 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen_array(char const **sa)
+size_t	ft_strlen_array(char **sa)
 {
 	size_t i;
 
