@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/16 13:59:25 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/16 14:48:14 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int				c2i(char c);
 char			i2c(int i);
 int				ft_nb_digit(int n);
 void			ft_swap_float(float *a, float *b);
-
 int				get_next_line(int fd, char **line);
+char			*ft_strcpy(char *dst, char const *src);
 
 void			ft_print(char *s);
 void			ft_print_cb(void *s);
