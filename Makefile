@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2020/12/16 14:50:06 by dait-atm         ###   ########.fr        #
+#    Updated: 2020/12/24 07:05:42 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ ft_strchr.c \
 ft_strlcat.c \
 ft_strlcpy.c \
 ft_strlen.c \
+ft_strlen_array.c \
 ft_strncmp.c \
 ft_strncpy.c \
 ft_strnstr.c \
