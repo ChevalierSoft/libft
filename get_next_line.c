@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 02:01:48 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/31 18:48:28 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 20:38:19 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	get_next_line(int fd, char **line)
 		if (res[fd] < BUFFER_SIZE)
 			return (bosg(&(a[fd]), buff[fd], (line), res[fd]));
 		is_ok = bosg(&(a[fd]), buff[fd], line, BUFFER_SIZE);
-		else if (is_ok != RAS)
+		if (is_ok != RAS)
 			return (is_ok);
 		ft_memset(buff, 0, BUFFER_SIZE);
 	}
