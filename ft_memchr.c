@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:06:09 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 19:54:13 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:50:55 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_memchr(const void *s, int c, unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n)

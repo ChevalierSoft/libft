@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:30:56 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/12 16:43:13 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:38:20 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *p;
+	void	*p;
 
-	if ((p = malloc(size * count)) == 0)
+	p = malloc(size * count);
+	if (!p)
 		return (0);
 	ft_bzero(p, count * size);
 	((char *)p)[0] = 0;

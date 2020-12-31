@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 17:21:59 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 20:08:53 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:43:29 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_nb_digit_custo(int n)
 {
-	int nbc;
+	int	nbc;
 
 	nbc = 0;
 	if (n > 0)
@@ -27,7 +27,7 @@ static int	ft_nb_digit_custo(int n)
 	return (nbc);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	long			m;
 	unsigned char	nbc;
@@ -41,7 +41,7 @@ char		*ft_itoa(int n)
 	if (n < 0)
 	{
 		m *= -1;
-		a[tm++] = (char)'-';
+		a[tm++] = (char) '-';
 	}
 	nbc = ft_nb_digit_custo(n);
 	while (m)

@@ -6,14 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 17:32:29 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/11 05:17:39 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 18:44:45 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 void	ft_swap_float(float *a, float *b)
 {
-	float tmp;
+	float	tmp;
 
 	tmp = *a;
 	*a = *b;

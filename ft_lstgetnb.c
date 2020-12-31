@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 02:25:31 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/09/18 02:25:33 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:46:10 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstgetnb(t_list *alst, int nb)
 {
-	t_list *n;
+	t_list	*n;
 
 	n = alst;
 	while (nb > 0)

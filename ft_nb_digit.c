@@ -6,13 +6,13 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:28:19 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/11 05:53:51 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:53:10 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_nb_digit(int n)
+int	ft_nb_digit(int n)
 {
-	int nbc;
+	int	nbc;
 
 	if (!n)
 		return (1);

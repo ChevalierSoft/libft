@@ -6,15 +6,15 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:11:35 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 22:21:17 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 18:39:18 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	long			last;
+	long	last;
 
 	last = ft_strlen(s) - 1;
 	if (!(char)c)

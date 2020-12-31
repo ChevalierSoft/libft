@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 02:01:48 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/07/07 23:10:24 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 18:48:28 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,25 @@
 #define ALERTE -1
 #define RAS 619
 
-static inline int		ret_a_plus(int *pt, int r)
+static inline
+int	ret_a_plus(int *pt, int r)
 {
 	(*pt)++;
 	return (r);
 }
 
-static inline int		ret_a_zero(int *pt, int r)
+static inline
+int	ret_a_zero(int *pt, int r)
 {
 	(*pt) = 0;
 	return (r);
 }
 
-static int				bosg(int *pt, char *buff, char **line, int res)
+static
+int	bosg(int *pt, char *buff, char **line, int res)
 {
-	char mas[2];
-	char *tmp;
+	char	mas[2];
+	char	*tmp;
 
 	mas[1] = '\0';
 	while (*pt < res)
@@ -71,7 +74,7 @@ static int				bosg(int *pt, char *buff, char **line, int res)
 	return (RAS);
 }
 
-int						get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static long	res[FD_MAX];
 	static char	buff[FD_MAX][BUFFER_SIZE];
@@ -85,7 +88,8 @@ int						get_next_line(int fd, char **line)
 	{
 		if (res[fd] < BUFFER_SIZE)
 			return (bosg(&(a[fd]), buff[fd], line, res[fd]));
-		if ((is_ok = bosg(&(a[fd]), buff[fd], line, res[fd])) != RAS)
+		is_ok = bosg(&(a[fd]), buff[fd], line, res[fd]);
+		if (is_ok != RAS)
 			return (is_ok);
 	}
 	while ((res[fd] = read(fd, buff[fd], BUFFER_SIZE)))
@@ -93,7 +97,8 @@ int						get_next_line(int fd, char **line)
 		a[fd] = 0;
 		if (res[fd] < BUFFER_SIZE)
 			return (bosg(&(a[fd]), buff[fd], (line), res[fd]));
-		else if ((is_ok = bosg(&(a[fd]), buff[fd], line, BUFFER_SIZE) != RAS))
+		is_ok = bosg(&(a[fd]), buff[fd], line, BUFFER_SIZE);
+		else if (is_ok != RAS)
 			return (is_ok);
 		ft_memset(buff, 0, BUFFER_SIZE);
 	}

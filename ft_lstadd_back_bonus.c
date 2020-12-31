@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 02:23:50 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/09/18 02:23:55 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:44:11 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *n;
+	t_list	*n;
 
 	if (*alst)
 	{

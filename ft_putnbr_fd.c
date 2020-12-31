@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:28:19 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/18 16:08:06 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 18:15:07 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_nb_digit_custo(int n)
 {
-	int nbc;
+	int	nbc;
 
 	if (!n)
 		return (1);
@@ -27,7 +27,7 @@ static int	ft_nb_digit_custo(int n)
 	return (nbc);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char			a[12];
 	int				i;

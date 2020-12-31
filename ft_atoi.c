@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 22:57:12 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/13 23:00:03 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 17:34:46 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_atoi(const char *str)
 	long	res;
 
 	neg = 1;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
 		str++;
 	if (*str == '-')
 	{

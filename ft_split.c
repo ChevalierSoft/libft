@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:54:33 by dait-atm          #+#    #+#             */
-/*   Updated: 2019/11/19 23:41:38 by dait-atm         ###   ########.fr       */
+/*   Updated: 2020/12/31 18:17:03 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static const char	*ft_size_w(const char *str, char c, size_t isset)
 	return (str);
 }
 
-static size_t		ft_count_words(const char *str, char c)
+static size_t	ft_count_words(const char *str, char c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (*str != 0)
@@ -40,9 +40,9 @@ static size_t		ft_count_words(const char *str, char c)
 	return (i);
 }
 
-static char			**ft_tabledel(char **ret, size_t len)
+static char	**ft_tabledel(char **ret, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
@@ -51,7 +51,7 @@ static char			**ft_tabledel(char **ret, size_t len)
 	return (NULL);
 }
 
-char				**ft_split(char const *str, char c)
+char	**ft_split(char const *str, char c)
 {
 	char		**lt;
 	const char	*next;
