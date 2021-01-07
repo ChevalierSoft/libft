@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/06 14:10:45 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/07 14:47:06 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int				ft_nb_digit(int n);
 void			ft_swap_float(float *a, float *b);
 int				get_next_line(int fd, char **line);
 char			*ft_strcpy(char *dst, char const *src);
+char    		*ft_strarray_to_str(char **ar);
 
 void			ft_print(char *s);
 void			ft_print_cb(void *s);
