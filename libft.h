@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/07 14:58:25 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/07 17:32:45 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void			ft_strdel_array(char ***s);
 void			ft_strstraff_left_array(char **a, int i);
 
 void			ft_print(char *s);
-void			ft_print_cb(void *s);
+void			ft_print_endl(void *s);
 void			ft_printr(char *s);
 void			ft_help(void);
 

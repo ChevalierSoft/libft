@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 01:40:07 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/11/23 12:09:44 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/07 17:32:15 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	ft_print(char *s)
 	write(1, s, ft_strlen(s));
 }
 
-void	ft_print_cb(void *s)
+void	ft_print_endl(void *s)
 {
 	ft_print(s);
+	ft_print("\n");
 }
 
 void	ft_printr(char *s)
