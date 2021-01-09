@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/07 17:32:45 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/09 03:24:51 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char			*ft_strncpy2(char *dst, const char *src, size_t len);
 char			*ft_strdup(const char *s1);
 void			*ft_calloc(size_t count, size_t size);
 void			*ft_realloc(void *ptr, size_t size);
-char			**ft_realloc_str_array(char ***ar, int nb);
+char			**ft_realloc_str_array(char ***ar, unsigned int nb);
 void			*ft_print_memory(void *addr, size_t size);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);

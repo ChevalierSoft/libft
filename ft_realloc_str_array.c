@@ -6,7 +6,7 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:03 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/09 03:21:02 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/09 03:25:59 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**ft_realloc_str_array(char ***ar, unsigned int nb)
 {
-	char	**as;
-	int		i;
+	char			**as;
+	unsigned int	i;
 
 	as = malloc(sizeof(char *) * (nb + 1));
 	if (!as)
