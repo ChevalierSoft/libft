@@ -6,7 +6,7 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 12:58:17 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/07 14:59:17 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/12 16:00:21 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_strstraff_left_array(char **a, int i)
 	if (!a)
 		return ;
 	j = i + 1;
-	free(a[i]);
+	if (a[i])
+		free(a[i]);
 	a[i++] = a[j++];
 	while (a[i])
 		a[i++] = a[j++];
