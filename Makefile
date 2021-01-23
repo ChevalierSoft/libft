@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/07 14:58:48 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/01/23 13:41:35 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
 ft_isdigit.c \
+ft_isaldigit.c \
 ft_isprint.c \
 ft_isspace.c \
 ft_memccpy.c \

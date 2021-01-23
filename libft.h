@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/09 03:24:51 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/23 13:41:12 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			*ft_memccpy(void *d, const void *s, int c, unsigned int n);
 int				ft_isprint(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
-int				ft_isascii(int c);
+int				ft_isaldigit(char *s);
 int				ft_isalpha(int c);
 int				ft_isalnum(int c);
 int				ft_isspace(int c);
