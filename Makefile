@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/23 13:41:35 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/01/23 14:19:13 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,9 @@ $(NAME): ${OBJS}
 bonus: $(OBJS) $(BBJS)
 	@echo "\nCreating $(NAME) with lists\c"
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
+	@if [ ! -z $(shell which strip) ]; then \
+		strip $(NAME);\
+	fi;
 	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
 
 clean:
