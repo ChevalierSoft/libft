@@ -6,10 +6,17 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/23 14:19:13 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/01/23 14:44:53 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+OBJS = ${SRCS:.c=.o}
+BBJS = ${BONUS:.c=.o} 
+FLAGS = -Wall -Wextra -Werror
+HDR  = includes
+
+CYN_COLOR	= \033[36m
 GRN_COLOR	= \033[32;01m
 GRF_COLOR	= \033[32;02m
 YEL_COLOR	= \033[33;01m
@@ -85,48 +92,38 @@ ft_lstsize_bonus.c \
 ft_strncpy_bonus.c \
 ft_lstgetnb.c
 
-NAME = libft.a
-OBJS = ${SRCS:.c=.o}
-BBJS = ${BONUS:.c=.o} 
-FLAGS = -Wall -Wextra -Werror
-HDR  = includes
 
-all: bonus
+all : $(NAME)
 
-$(NAME): ${OBJS}
+$(NAME) : $(OBJS) $(BBJS)
 	@echo "\rCreating $(NAME)\c"
-	@ar -rcs ${NAME} ${OBJS}
-	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
-
-%.o: %.c
-	@echo "\r$@\c"
-	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
-	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)\c"
-	@echo "\r                                        \c"
-
-bonus: $(OBJS) $(BBJS)
-	@echo "\nCreating $(NAME) with lists\c"
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
 	@if [ ! -z $(shell which strip) ]; then \
 		strip $(NAME);\
 	fi;
-	@echo "\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)"
 
-clean:
+%.o : %.c
+	@echo "\r$@\c"
+	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
+	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)\c"
+	@echo "\r                                              \c"
+
+clean :
 	@echo "Deleting object files\c"
 	@/bin/rm -f $(OBJS) $(BBJS)
-	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)"
 
-fclean: clean
+fclean : clean
 	@echo "Deleting $(NAME)\c"
 	@/bin/rm -f $(NAME)
-	@echo "\t\t$(GRN_COLOR)[OK]$(RST_COLOR)"
+	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)"
 
-re: fclean all
+re : fclean all
 
-.PHONY: fclean all clean re bonus
+.PHONY: fclean all clean re cat
 
-cat:
+cat :
 	@echo "$(RED_COLOR)"
 	@echo "                   _____"
 	@echo "                  /  __ \\"
