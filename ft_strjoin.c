@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:06:01 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/31 18:26:32 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/24 08:43:59 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s3 = malloc(sizeof(char) * (s1len + s2len + 1));
 	if (!s3)
 		return (0);
-	ft_strncpy2(s3, s1, s1len);
-	ft_strncpy2(s3 + s1len, s2, s2len);
+	ft_strncpy(s3, s1, s1len);
+	ft_strncpy(s3 + s1len, s2, s2len);
 	s3[s1len + s2len] = '\0';
 	return (s3);
 }

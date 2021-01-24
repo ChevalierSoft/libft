@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/23 14:44:53 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/01/24 08:43:14 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ ft_isdigit.c \
 ft_isaldigit.c \
 ft_isprint.c \
 ft_isspace.c \
+ft_isupper.c \
 ft_memccpy.c \
 ft_memchr.c \
 ft_memcmp.c \
@@ -89,7 +90,6 @@ ft_lstlast_bonus.c \
 ft_lstmap_bonus.c \
 ft_lstnew_bonus.c \
 ft_lstsize_bonus.c \
-ft_strncpy_bonus.c \
 ft_lstgetnb.c
 
 

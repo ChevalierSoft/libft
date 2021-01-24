@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/23 13:41:12 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/24 08:54:48 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,80 +54,93 @@ typedef struct s_list
 #  define RST   "\x1B[0m"
 # endif
 
-size_t			ft_strlen(const char *str);
-size_t			ft_strlen_array(char **str);
-int				ft_toupper(int c);
-int				ft_tolower(int c);
-void			*ft_memmove(void *dst, const void *src, size_t len);
-char			*ft_strrchr(const char *s, int c);
-char			*ft_strnstr(const char *src, const char *ndl, size_t len);
-int				ft_strncmp(char const *s1, char const *s2, size_t n);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-int				ft_memcmp(const void *s1, const void *s2, unsigned int n);
-void			*ft_memchr(const void *s, int c, unsigned int n);
-void			*ft_memccpy(void *d, const void *s, int c, unsigned int n);
-int				ft_isprint(int c);
-int				ft_isascii(int c);
-int				ft_isdigit(int c);
-int				ft_isaldigit(char *s);
-int				ft_isalpha(int c);
-int				ft_isalnum(int c);
-int				ft_isspace(int c);
-void			ft_bzero(void *s, size_t n);
-int				ft_atoi(const char *str);
-void			*ft_memset(void *b, int c, size_t len);
-char			*ft_strchr(const char *s, int c);
-size_t			ft_strlcat(char *dest, const char *src, size_t size);
-size_t			ft_strlcpy(char *dest, const char *src, size_t size);
-char			*ft_strncpy2(char *dst, const char *src, size_t len);
-char			*ft_strdup(const char *s1);
-void			*ft_calloc(size_t count, size_t size);
-void			*ft_realloc(void *ptr, size_t size);
-char			**ft_realloc_str_array(char ***ar, unsigned int nb);
-void			*ft_print_memory(void *addr, size_t size);
-char			*ft_strtrim(char const *s1, char const *set);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
-void			ft_strjoin2(char **s1, char const *s2);
-void			ft_strjoin3(char const *s1, char **s2);
-char			*ft_itoa(int n);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char *s, int fd);
-char			**ft_split(char const *s, char c);
-char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void			ft_putendl_fd(char *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
 int				ft_isneg(long long i);
 int				ft_abs(long long i);
 float			ft_fabs(float f);
 int				c2i(char c);
 char			i2c(int i);
-int				ft_nb_digit(int n);
+
+char			*ft_itoa(int n);
+int				ft_atoi(const char *str);
+
 void			ft_swap_float(float *a, float *b);
-int				get_next_line(int fd, char **line);
+
+size_t			ft_strlen(const char *str);
+size_t			ft_strlen_array(char **str);
+
+char			*ft_strrchr(const char *s, int c);
+char			*ft_strnstr(const char *src, const char *ndl, size_t len);
+int				ft_strncmp(char const *s1, char const *s2, size_t n);
+char			*ft_strchr(const char *s, int c);
+size_t			ft_strlcat(char *dest, const char *src, size_t size);
+size_t			ft_strlcpy(char *dest, const char *src, size_t size);
+char			*ft_strncpy(char *dst, const char *src, size_t len);
+char			*ft_strdup(const char *s1);
+char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_strjoin(char const *s1, char const *s2);
+void			ft_strjoin2(char **s1, char const *s2);
+void			ft_strjoin3(char const *s1, char **s2);
 char			*ft_strcpy(char *dst, char const *src);
 char			*ft_strcut(char *s, int beg, int end);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+char			**ft_split(char const *s, char c);
+
 char			*ft_strarray_to_str(char **ar);
 void			ft_strdel_array(char ***s);
 void			ft_strstraff_left_array(char **a, int i);
 
+void			ft_bzero(void *s, size_t n);
+
+void			*ft_memset(void *b, int c, size_t len);
+void			*ft_memmove(void *dst, const void *src, size_t len);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
+int				ft_memcmp(const void *s1, const void *s2, unsigned int n);
+void			*ft_memchr(const void *s, int c, unsigned int n);
+void			*ft_memccpy(void *d, const void *s, int c, unsigned int n);
+
+int				ft_toupper(int c);
+int				ft_tolower(int c);
+
+int				ft_isspace(int c);
+int				ft_isprint(int c);
+int				ft_isascii(int c);
+int				ft_isupper(int c);
+int				ft_isdigit(int c);
+
+int				ft_isaldigit(char *s);
+int				ft_isalpha(int c);
+int				ft_isalnum(int c);
+
+void			*ft_calloc(size_t count, size_t size);
+void			*ft_realloc(void *ptr, size_t size);
+char			**ft_realloc_str_array(char ***ar, unsigned int nb);
+
+void			*ft_print_memory(void *addr, size_t size);
+
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
 void			ft_print(char *s);
 void			ft_print_endl(void *s);
 void			ft_printr(char *s);
 void			ft_help(void);
 
+int				ft_nb_digit(int n);
+int				get_next_line(int fd, char **line);
+
 t_list			*ft_lstnew(void *content);
-void			ft_lstadd_front(t_list **alst, t_list *new);
+void			ft_lstadd_front(t_list **alst, t_list *n);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstadd_back(t_list **alst, t_list *n);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
 int				ft_lstcount(t_list *l);
-char			*ft_strncpy(char *dst, const char *src, size_t len);
-
 t_list			*ft_lstgetnb(t_list *alst, int nb);
 
 #endif
