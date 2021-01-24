@@ -6,7 +6,7 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 14:11:18 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/24 11:34:31 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/24 12:50:30 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,112 +16,120 @@
 
 typedef struct s_strtoll_content
 {
+	char				*s;
+	int					c;
+	int					neg;
+	unsigned long long	acc;
 	int					any;
 	unsigned long long	cutoff;
 	int					cutlim;
 }				t_strtoll_content;
 
+static inline
+void	prepare_ft_strtoll(int *neg, int *c, char **s, int *base)
+{
+	*neg = 0;
+	while (*c == ' ')
+	{
+		*c = *(*s)++;
+	}
+	if (*c == '-')
+	{
+		*neg = 1;
+		*c = *(*s)++;
+	}
+	else if (*c == '+')
+		*c = **s++;
+	if ((*base == 0 || *base == 16)
+		&& *c == '0' && (**s == 'x' || **s == 'X'))
+	{
+		*c = ++*(*s)++;
+		*base = 16;
+	}
+	if (*base == 0)
+	{
+		if (*c == '0')
+			*base = 8;
+		else
+			*base = 10;
+	}
+}
+
+static inline
+void	prepare_ft_strtoll_content(t_strtoll_content *cont, int neg, int base)
+{
+	if (neg)
+		cont->cutoff = - (unsigned long long) LLONG_MIN;
+	else
+		cont->cutoff = (unsigned long long) LLONG_MAX;
+	cont->cutlim = cont->cutoff % (unsigned long long)base;
+	cont->cutoff /= (unsigned long long)base;
+	cont->any = 0;
+}
+
+static inline
+void	init_ft_strtoll(const char *n, unsigned long long *a, char **s, int *c)
+{
+	*a = 0;
+	*s = (char *)n;
+	*c = (int)(**s);
+	(*s)++;
+}
+
+static inline
+int	ft_strtoll_loop(t_strtoll_content *cont, int base)
+{
+	if (ft_isdigit(cont->c))
+		cont->c -= '0';
+	else if (ft_isalpha(cont->c))
+	{
+		if (ft_isupper(cont->c))
+			cont->c -= 'A' - 10;
+		else
+			cont->c -= 'a' - 10;
+	}
+	else
+		return (0);
+	if (cont->c >= base)
+		return (0);
+	if (cont->any < 0 || cont->acc > cont->cutoff
+		|| (cont->acc == cont->cutoff && cont->c > cont->cutlim))
+		cont->any = -1;
+	else
+	{
+		cont->any = 1;
+		cont->acc *= base;
+		cont->acc += cont->c;
+	}
+	cont->c = *cont->s++;
+	return (1);
+}
 
 long long	ft_strtoll(const char *nptr, char **endptr, int base)
 {
-	char				*s;
-	int					c;
-	int					neg;
-	unsigned long long	acc;
-	t_strtoll_content	content;
+	t_strtoll_content	cont;
 
-	neg = 0;
-	s = (char *)nptr;
-	c = (int)*s++;
-
-	// espaces
-	while (c == ' ')
-		c = *s++;
-	
-	// signe
-	if (c == '-')
+	init_ft_strtoll(nptr, &cont.acc, &cont.s, &cont.c);
+	prepare_ft_strtoll(&cont.neg, &cont.c, &cont.s, &base);
+	prepare_ft_strtoll_content(&cont, cont.neg, base);
+	while (ft_strtoll_loop(&cont, base))
+		;
+	if (cont.any < 0)
 	{
-		neg = 1;
-		c = *s++;
-	}
-	else if (c == '+')
-		c = *s++;
-	// 0x
-	if ((base == 0 || base == 16)
-		&& c == '0' && (*s == 'x' || *s == 'X'))
-	{
-		c = ++*s++;
-		base = 16;
-	}
-
-	// number begins with 0
-	if  (base == 0)
-	{
-		if (c == '0')
-			base = 8;
+		if (cont.neg)
+			cont.acc = LLONG_MIN;
 		else
-			base = 10;
-	}
-
-	// set the maxmimum value to not cross
-	if (neg)
-		content.cutoff = -(unsigned long long)LLONG_MIN;
-	else
-		content.cutoff = (unsigned long long)LLONG_MAX;
-
-	// get the last digit
-	content.cutlim = content.cutoff % (unsigned long long)base;
-	// max length of the number depending on base
-	content.cutoff /= (unsigned long long)base;
-
-	acc = 0;
-	content.any = 0;
-	while (1)
-	{
-		if (ft_isdigit(c))
-			c -= '0';
-		else if (ft_isalpha(c))
-		{
-			if (ft_isupper(c))
-				c -= 'A' - 10;
-			else
-				c -= 'a' - 10;
-		}
-		else
-			break ;
-		// if the letter is not in the base
-		if (c >= base)
-			break ;
-		// number is too big	
-		if (content.any < 0 || acc > content.cutoff || (acc == content.cutoff && c > content.cutlim))
-			content.any = -1;
-		else
-		{
-			content.any = 1;
-			acc *= base;
-			acc += c;
-		}
-		c = *s++;
-	}
-	// overflow or underflow
-	if (content.any < 0)
-	{
-		if (neg)
-			acc = LLONG_MIN;
-		else
-			acc = LLONG_MAX;
+			cont.acc = LLONG_MAX;
 		errno = ERANGE;
 	}
-	else if (neg)
-		acc = -acc;
-	// store bad char
+	else if (cont.neg)
+		cont.acc = -cont.acc;
 	if (endptr != NULL)
 	{
-		if (content.any)
-			*endptr = s - 1;
+		if (cont.any)
+			*endptr = cont.s - 1;
 		else
 			*endptr = (char *)nptr;
 	}
-
-	return (acc);
+	return (cont.acc);
 }
