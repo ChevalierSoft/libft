@@ -6,15 +6,15 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/24 08:43:14 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/01/24 09:43:40 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-OBJS = ${SRCS:.c=.o}
-BBJS = ${BONUS:.c=.o} 
-FLAGS = -Wall -Wextra -Werror
-HDR  = includes
+NAME		= libft.a
+OBJS		= ${SRCS:.c=.o} ${LISTS:.c=.o} 
+FLAGS		= -Wall -Wextra -Werror
+HDR			= includes
+CC			= gcc
 
 CYN_COLOR	= \033[36m
 GRN_COLOR	= \033[32;01m
@@ -23,7 +23,8 @@ YEL_COLOR	= \033[33;01m
 RED_COLOR	= \x1B[31m
 RST_COLOR	= \033[0m
 
-SRCS		= ft_bzero.c \
+SRCS		= \
+ft_bzero.c \
 ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
@@ -79,9 +80,10 @@ ft_realloc.c \
 ft_realloc_str_array.c \
 ft_strcpy.c \
 ft_strarray_to_str.c \
-ft_strstraff_left_array.c
+ft_strstraff_left_array.c \
+ft_strtoll.c
 
-BONUS = ft_lstadd_back_bonus.c \
+LISTS		= ft_lstadd_back_bonus.c \
 ft_lstadd_front_bonus.c \
 ft_lstclear_bonus.c \
 ft_lstdelone_bonus.c \
@@ -95,9 +97,12 @@ ft_lstgetnb.c
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(BBJS)
+$(NAME) : $(OBJS)
 	@echo "\rCreating $(NAME)\c"
 	@ar -rcs $(NAME) $(OBJS) $(BBJS)
+	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)"
+
+$(REDUCE) : all
 	@if [ ! -z $(shell which strip) ]; then \
 		strip $(NAME);\
 	fi;
@@ -105,7 +110,7 @@ $(NAME) : $(OBJS) $(BBJS)
 
 %.o : %.c
 	@echo "\r$@\c"
-	@gcc ${FLAGS} -c -o $@ $< -I ${HDR}
+	@$(CC) ${FLAGS} -c -o $@ $< -I ${HDR}
 	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)\c"
 	@echo "\r                                              \c"
 

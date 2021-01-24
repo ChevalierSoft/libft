@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/24 08:54:48 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/24 09:31:35 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char			i2c(int i);
 
 char			*ft_itoa(int n);
 int				ft_atoi(const char *str);
+long long		ft_strtoll(const char *nptr, char **endptr, int base);
 
 void			ft_swap_float(float *a, float *b);
 

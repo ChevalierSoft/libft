@@ -6,7 +6,7 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 14:11:18 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/24 09:20:03 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/24 11:34:31 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 #include <errno.h>
 #include <limits.h>
 
+typedef struct s_strtoll_content
+{
+	int					any;
+	unsigned long long	cutoff;
+	int					cutlim;
+}				t_strtoll_content;
+
+
 long long	ft_strtoll(const char *nptr, char **endptr, int base)
 {
 	char				*s;
 	int					c;
 	int					neg;
-	int					any;
 	unsigned long long	acc;
-	unsigned long long	cutoff;
-	int					cutlim;
+	t_strtoll_content	content;
 
 	neg = 0;
 	s = (char *)nptr;
@@ -59,17 +65,17 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 
 	// set the maxmimum value to not cross
 	if (neg)
-		cutoff = -(unsigned long long)LONG_MIN;
+		content.cutoff = -(unsigned long long)LLONG_MIN;
 	else
-		cutoff = (unsigned long long)LONG_MIN;
+		content.cutoff = (unsigned long long)LLONG_MAX;
 
 	// get the last digit
-	cutlim = cutoff % (unsigned long long)base;
+	content.cutlim = content.cutoff % (unsigned long long)base;
 	// max length of the number depending on base
-	cutoff /= (unsigned long long)base;
+	content.cutoff /= (unsigned long long)base;
 
 	acc = 0;
-	any = 0;
+	content.any = 0;
 	while (1)
 	{
 		if (ft_isdigit(c))
@@ -87,18 +93,18 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 		if (c >= base)
 			break ;
 		// number is too big	
-		if (any < 0 || acc > cutoff || (acc == cutoff && c > cutlim))
-			any = -1;
+		if (content.any < 0 || acc > content.cutoff || (acc == content.cutoff && c > content.cutlim))
+			content.any = -1;
 		else
 		{
-			any = 1;
+			content.any = 1;
 			acc *= base;
 			acc += c;
 		}
 		c = *s++;
 	}
 	// overflow or underflow
-	if (any < 0)
+	if (content.any < 0)
 	{
 		if (neg)
 			acc = LLONG_MIN;
@@ -111,10 +117,10 @@ long long	ft_strtoll(const char *nptr, char **endptr, int base)
 	// store bad char
 	if (endptr != NULL)
 	{
-		if (any)
+		if (content.any)
 			*endptr = s - 1;
 		else
-			*endptr = nptr;
+			*endptr = (char *)nptr;
 	}
 
 	return (acc);
