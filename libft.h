@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/24 09:31:35 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/28 10:29:32 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,10 @@ int				get_next_line(int fd, char **line);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *n);
+void			ft_lstadd_back(t_list **alst, t_list *n);
+void			ft_lstadd_right(t_list *left, t_list *right);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_back(t_list **alst, t_list *n);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
