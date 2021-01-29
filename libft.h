@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/28 10:29:32 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/01/29 10:41:17 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 int				ft_isspace(int c);
+int				ft_isalspace(char *c);
 int				ft_isprint(int c);
 int				ft_isascii(int c);
 int				ft_isupper(int c);
