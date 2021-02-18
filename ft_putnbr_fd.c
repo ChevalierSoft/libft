@@ -27,7 +27,7 @@ static int	ft_nb_digit_custo(int n)
 	return (nbc);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
 	char			a[12];
 	int				i;

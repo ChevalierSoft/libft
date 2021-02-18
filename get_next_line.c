@@ -13,10 +13,6 @@
 #include "libft.h"
 #include "limits.h"
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 64
-#endif
-
 #ifdef __unix__
 # define FD_MAX FOPEN_MAX
 #endif
@@ -25,30 +21,23 @@
 # define FD_MAX FOPEN_MAX
 #endif
 
-#ifndef FD_MAX
-# define FD_MAX 20
-#endif
-
 #define ALERTE -1
 #define RAS 619
 #define FTN 69
 
-static inline
-int	ret_a_plus(int *pt, int r)
+static inline int	ret_a_plus(int *pt, int r)
 {
 	(*pt)++;
 	return (r);
 }
 
-static inline
-int	ret_a_zero(int *pt, int r)
+static inline int	ret_a_zero(int *pt, int r)
 {
 	(*pt) = 0;
 	return (r);
 }
 
-static
-int	bosg(int *pt, char *buf, char **line, int res)
+static inline int	bosg(int *pt, char *buf, char **line, int res)
 {
 	char	mas[2];
 	char	*tmp;
@@ -75,27 +64,20 @@ int	bosg(int *pt, char *buf, char **line, int res)
 	return (RAS);
 }
 
-typedef struct s_gnldata
-{
-	long	res[FD_MAX];
-	char	buf[FD_MAX][BUFFER_SIZE];
-	int		a[FD_MAX];
-}				t_gnldata;
-
-int	get_next_line_proxy(t_gnldata *d, char **line, int *is_ok, int fd)
+static int			get_next_line_proxy(t_gnldata *d, char **l, int *ok, int fd)
 {
 	if (d->a[fd] > 0 && d->a[fd] < BUFFER_SIZE && d->buf[fd][d->a[fd]])
 	{
 		if (d->res[fd] < BUFFER_SIZE)
-			return (bosg(&(d->a[fd]), d->buf[fd], line, d->res[fd]));
-		*is_ok = bosg(&(d->a[fd]), d->buf[fd], line, d->res[fd]);
-		if (*is_ok != RAS)
-			return (*is_ok);
+			return (bosg(&(d->a[fd]), d->buf[fd], l, d->res[fd]));
+		*ok = bosg(&(d->a[fd]), d->buf[fd], l, d->res[fd]);
+		if (*ok != RAS)
+			return (*ok);
 	}
 	return (FTN);
 }
 
-int	get_next_line(int fd, char **line)
+int					get_next_line(int fd, char **line)
 {
 	static t_gnldata	d;
 	int					is_ok;

@@ -20,11 +20,37 @@
 # include <unistd.h>
 # include <stdint.h>
 
-typedef struct s_list
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 64
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 20
+# endif
+
+typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_gnldata
+{
+	long	res[FD_MAX];
+	char	buf[FD_MAX][BUFFER_SIZE];
+	int		a[FD_MAX];
+}				t_gnldata;
+
+typedef struct	s_strtoll_content
+{
+	char				*s;
+	int					c;
+	int					neg;
+	unsigned long long	acc;
+	int					any;
+	unsigned long long	cutoff;
+	int					cutlim;
+}				t_strtoll_content;
 
 # ifndef BLK
 #  define BLK   "\x1B[30m"

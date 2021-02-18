@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	ft_is_from_base(char c, const char *set)
+static int		ft_is_from_base(char c, const char *set)
 {
 	while (*set)
 	{
@@ -39,7 +39,7 @@ static size_t	count_setlen_lr(const char *s, const char *set, int sens)
 	return (i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	beg;
 	size_t	size;

@@ -14,19 +14,7 @@
 #include <errno.h>
 #include <limits.h>
 
-typedef struct s_strtoll_content
-{
-	char				*s;
-	int					c;
-	int					neg;
-	unsigned long long	acc;
-	int					any;
-	unsigned long long	cutoff;
-	int					cutlim;
-}				t_strtoll_content;
-
-static inline
-void	prepare_ft_strtoll(int *neg, int *c, char **s, int *base)
+static inline void	prepare_ft_strtoll(int *neg, int *c, char **s, int *base)
 {
 	*neg = 0;
 	while (*c == ' ')
@@ -55,20 +43,18 @@ void	prepare_ft_strtoll(int *neg, int *c, char **s, int *base)
 	}
 }
 
-static inline
-void	prepare_ft_strtoll_content(t_strtoll_content *cont, int neg, int base)
+static inline void	prepare_strtoll(t_strtoll_content *cont, int neg, int base)
 {
 	if (neg)
-		cont->cutoff = - (unsigned long long) LLONG_MIN;
+		cont->cutoff = -(unsigned long long)LLONG_MIN;
 	else
-		cont->cutoff = (unsigned long long) LLONG_MAX;
+		cont->cutoff = (unsigned long long)LLONG_MAX;
 	cont->cutlim = cont->cutoff % (unsigned long long)base;
 	cont->cutoff /= (unsigned long long)base;
 	cont->any = 0;
 }
 
-static inline
-void	init_ft_strtoll(const char *n, unsigned long long *a, char **s, int *c)
+static inline void	isll(const char *n, unsigned long long *a, char **s, int *c)
 {
 	*a = 0;
 	*s = (char *)n;
@@ -76,8 +62,7 @@ void	init_ft_strtoll(const char *n, unsigned long long *a, char **s, int *c)
 	(*s)++;
 }
 
-static inline
-int	ft_strtoll_loop(t_strtoll_content *cont, int base)
+static inline int	ft_strtoll_loop(t_strtoll_content *cont, int base)
 {
 	if (ft_isdigit(cont->c))
 		cont->c -= '0';
@@ -105,13 +90,13 @@ int	ft_strtoll_loop(t_strtoll_content *cont, int base)
 	return (1);
 }
 
-long long	ft_strtoll(const char *nptr, char **endptr, int base)
+long long			ft_strtoll(const char *nptr, char **endptr, int base)
 {
 	t_strtoll_content	cont;
 
-	init_ft_strtoll(nptr, &cont.acc, &cont.s, &cont.c);
+	isll(nptr, &cont.acc, &cont.s, &cont.c);
 	prepare_ft_strtoll(&cont.neg, &cont.c, &cont.s, &base);
-	prepare_ft_strtoll_content(&cont, cont.neg, base);
+	prepare_strtoll(&cont, cont.neg, base);
 	while (ft_strtoll_loop(&cont, base))
 		;
 	if (cont.any < 0)
