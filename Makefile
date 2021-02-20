@@ -6,7 +6,7 @@
 #    By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 13:27:46 by dait-atm          #+#    #+#              #
-#    Updated: 2021/01/29 10:40:32 by dait-atm         ###   ########.fr        #
+#    Updated: 2021/02/16 08:34:04 by dait-atm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,8 @@ ft_lstlast_bonus.c \
 ft_lstmap_bonus.c \
 ft_lstsize_bonus.c \
 ft_lstgetnb.c \
-ft_lstcount.c
+ft_lstcount.c \
+ft_lstget_previous.c
 
 
 all : $(NAME)

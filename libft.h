@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:04:23 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/01/29 10:41:17 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/02/16 08:34:52 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,37 @@
 # include <unistd.h>
 # include <stdint.h>
 
-typedef struct s_list
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 64
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 20
+# endif
+
+typedef struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_gnldata
+{
+	long	res[FD_MAX];
+	char	buf[FD_MAX][BUFFER_SIZE];
+	int		a[FD_MAX];
+}				t_gnldata;
+
+typedef struct	s_strtoll_content
+{
+	char				*s;
+	int					c;
+	int					neg;
+	unsigned long long	acc;
+	int					any;
+	unsigned long long	cutoff;
+	int					cutlim;
+}				t_strtoll_content;
 
 # ifndef BLK
 #  define BLK   "\x1B[30m"
@@ -145,5 +171,6 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
 int				ft_lstcount(t_list *l);
 t_list			*ft_lstgetnb(t_list *alst, int nb);
+t_list			*ft_lstget_previous(t_list *head, t_list *node);
 
 #endif

@@ -23,7 +23,7 @@ static const char	*ft_size_w(const char *str, char c, size_t isset)
 	return (str);
 }
 
-static size_t	ft_count_words(const char *str, char c)
+static size_t		ft_count_words(const char *str, char c)
 {
 	size_t	i;
 
@@ -40,7 +40,7 @@ static size_t	ft_count_words(const char *str, char c)
 	return (i);
 }
 
-static char	**ft_tabledel(char **ret, size_t len)
+static char			**ft_tabledel(char **ret, size_t len)
 {
 	size_t	i;
 
@@ -51,7 +51,7 @@ static char	**ft_tabledel(char **ret, size_t len)
 	return (NULL);
 }
 
-char	**ft_split(char const *str, char c)
+char				**ft_split(char const *str, char c)
 {
 	char		**lt;
 	const char	*next;

@@ -112,7 +112,7 @@ static void	ft_aff_msg(void *addr, int nbr)
 	}
 }
 
-void	*ft_print_memory(void *addr, size_t size)
+void		*ft_print_memory(void *addr, size_t size)
 {
 	size_t	aerosol;
 

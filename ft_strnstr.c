@@ -26,7 +26,7 @@ static int	ft_strchr_2(const char *s, char c)
 	return (-1);
 }
 
-char	*ft_strnstr(const char *src, const char *needle, size_t len)
+char		*ft_strnstr(const char *src, const char *needle, size_t len)
 {
 	size_t			i;
 	size_t			ln;
