@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 02:01:48 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/31 20:38:19 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/02/20 05:12:02 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 #endif
 
 #ifdef __unix__
-# define FD_MAX FOPEN_MAX
+# ifndef FD_MAX
+#  define FD_MAX FOPEN_MAX
+# endif
 #endif
 
 #ifdef OS_Windows
