@@ -13,7 +13,7 @@
 NAME		= libft.a
 OBJS		= ${SRCS:.c=.o} ${LISTS:.c=.o} 
 FLAGS		= -Wall -Wextra -Werror
-HDR			= includes
+INC			= includes
 CC			= gcc
 
 CYN_COLOR	= \033[36m
@@ -98,6 +98,11 @@ ft_lstgetnb.c \
 ft_lstcount.c \
 ft_lstget_previous.c
 
+ifeq ($(OS),Windows_NT)
+	POSIX = 0
+else
+	POSIX = 1
+endif
 
 all : $(NAME)
 
@@ -114,7 +119,7 @@ $(REDUCE) : all
 
 %.o : %.c
 	@echo "\r$@\c"
-	@$(CC) ${FLAGS} -c -o $@ $< -I ${HDR}
+	@$(CC) $(FLAGS) -c -o $@ $< -DPOSIX=$(POSIX) -I $(INC)
 	@echo "\t\t$(CYN_COLOR)[OK]$(RST_COLOR)\c"
 	@echo "\r                                              \c"
 

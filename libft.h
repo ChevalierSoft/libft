@@ -17,8 +17,13 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
-# include <unistd.h>
 # include <stdint.h>
+
+# if POSIX == 1
+#  include <unistd.h>
+# else
+#  include <io.h>
+# endif
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
