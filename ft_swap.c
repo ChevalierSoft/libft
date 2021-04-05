@@ -6,7 +6,7 @@
 /*   By: dait-atm <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 17:32:29 by dait-atm          #+#    #+#             */
-/*   Updated: 2020/12/31 18:44:45 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/04/05 08:26:18 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	ft_swap_int(void *va, void *vb)
 {
 	int	*a;
 	int	*b;
-	int c;
+	int	c;
 
 	a = (int *)va;
 	b = (int *)vb;

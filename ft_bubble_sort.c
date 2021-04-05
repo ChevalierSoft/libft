@@ -6,14 +6,14 @@
 /*   By: dait-atm <dait-atm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 08:13:21 by dait-atm          #+#    #+#             */
-/*   Updated: 2021/04/05 08:13:24 by dait-atm         ###   ########.fr       */
+/*   Updated: 2021/04/05 08:26:49 by dait-atm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bubble_sort(
-	void *list,
-	int size,
-	int (*cmp)(void *, void *),
+void	ft_bubble_sort( \
+	void *list, \
+	int size, \
+	int (*cmp)(void *, void *), \
 	void (*swap)(void *, void *))
 {
 	int	j;
